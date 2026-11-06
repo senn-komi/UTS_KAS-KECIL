@@ -134,12 +134,12 @@ Berikut merupakan dokumentasi tampilan antarmuka aplikasi Kas Kecil.
 
 | **Halaman Login** | **Halaman Register** |
 |:---:|:---:|
-| ![Login](screenshots/Login.png) | ![Register](screenshots/Register.png) |
+| ![Login](screenshot/Login.png) | ![Register](screenshot/Register.png) |
 
 | **Halaman Home** | **Form Transaksi** |
 |:---:|:---:|
-| ![Home](screenshots/Home.png) | ![Tambah](screenshots/Tambah.png) |
-| ![Edit ](screenshots/Edit.png) | ![ Logout ](screenshots/Logout.png) |
+| ![Home](screenshot/Home.png) | ![Tambah](screenshot/Tambah.png) |
+| ![Edit ](screenshot/Edit.png) | ![ Logout ](screenshot/Logout.png) |
 
 > **Catatan:** Gambar di atas merupakan referensi nama file. Pastikan screenshot aktual sudah dimasukkan ke folder `screenshots` di repository GitHub.
 
