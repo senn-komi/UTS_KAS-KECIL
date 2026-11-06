@@ -1,131 +1,292 @@
-APLIKASI KAS KECIL
-Ujian Tengah Semester (UTS) Pemrograman Multi Platform
-Fakultas Teknologi Informasi — Institut Sains dan Bisnis Atma Luhur Pangkalpinang
-Program Studi: Teknologi Informasi | Tahun Akademik: 2026/2027
+# 💰 APLIKASI KAS KECIL
 
-Aplikasi Flutter untuk mencatat dan mengelola transaksi pemasukan serta pengeluaran dengan Firebase Authentication, Cloud Firestore, Provider, dan REST API Dio.
-👥 Anggota Kelompok & Pembagian Peran
-No.	Nama Mahasiswa	NIM	Peran
-1	Zena Juniarti	2411500046	Firebase Authentication, AuthProvider, navigasi, main.dart, dan struktur folder
-2	Zahro Safitri	2411500063	Firestore CRUD, Model, Service, TransactionProvider, ViewState, Dio REST API, ApiProvider, dan Future vs Stream
+<p align="center">
+  **Ujian Tengah Semester (UTS) – Pemrograman Multi Platform**  
+  Fakultas Teknologi Informasi  
+  Institut Sains dan Bisnis Atma Luhur Pangkalpinang  
+  Program Studi Teknologi Informasi  
+  Tahun Akademik 2026/2027
+</p>
 
+---
 
-Rincian Pembagian Tugas
-Anggota 1 — Authentication, Navigasi, dan Struktur Aplikasi
-- Menyiapkan struktur folder dan konfigurasi awal aplikasi.
-- Menginisialisasi Firebase melalui main.dart dan firebase_options.dart.
-- Mengimplementasikan Firebase Authentication: Register, Login, dan Logout.
-- Membuat dan mengelola AuthService serta AuthProvider.
-- Memantau perubahan status autentikasi menggunakan authStateChanges().
-- Mengatur AuthGate dan navigasi berdasarkan status login pengguna.
-Anggota 2 — Firestore CRUD, Provider, dan REST API
-- Membuat TransactionModel dan ProductModel.
-- Membuat FirestoreService untuk operasi Create, Read, Update, dan Delete transaksi.
-- Membuat TransactionProvider untuk mengelola data transaksi dan menghitung pemasukan, pengeluaran, serta saldo.
-- Mengimplementasikan ViewState untuk status loading, loaded, error, dan empty.
-- Membuat ApiService menggunakan Dio untuk mengambil data dari REST API DummyJSON.
-- Membuat ApiProvider serta mendukung tampilan daftar dan detail produk.
-- Menerapkan Future untuk proses asynchronous satu kali dan Stream untuk memantau perubahan data secara berkelanjutan.
-Karena kelompok terdiri dari dua orang, Anggota 2 merangkap tugas integrasi Dio REST API, penanganan loading/error/empty, serta penerapan Future dan Stream.
+## 📖 Deskripsi Aplikasi
 
-🚀 Fitur Aplikasi
-1. Firebase Authentication
-- Register, login, dan logout menggunakan email dan password.
-- Memantau status autentikasi secara reaktif menggunakan Stream<User?> melalui authStateChanges().
-- Mengarahkan pengguna ke halaman login atau halaman utama berdasarkan status autentikasi.
-2. Cloud Firestore CRUD
-- Menyimpan data transaksi pada collection transactions.
-- Mendukung Create, Read, Update, dan Delete transaksi.
-- Menggunakan owner (UID pengguna) untuk mengaitkan transaksi dengan akun pemiliknya.
-- Menggunakan Timestamp untuk menyimpan waktu transaksi.
-- Memantau perubahan data transaksi menggunakan snapshots().
-3. Provider dan ViewState
-- Menggunakan tiga ChangeNotifier: AuthProvider, TransactionProvider, dan ApiProvider.
-- Mendaftarkan Provider melalui MultiProvider pada main.dart.
-- Mengelola kondisi tampilan menggunakan ViewState: loading, loaded, error, dan empty.
-- Menggunakan notifyListeners() untuk memberi tahu widget ketika state berubah.
+**Kas Kecil** merupakan aplikasi mobile berbasis Flutter yang digunakan untuk mencatat dan mengelola transaksi keuangan, khususnya pemasukan dan pengeluaran.
+
+Aplikasi ini dikembangkan dengan mengintegrasikan Firebase Authentication, Cloud Firestore, Provider, serta REST API menggunakan Dio. Selain mengelola transaksi keuangan, aplikasi juga menyediakan halaman referensi produk yang mengambil data dari DummyJSON API.
+
+## 👥 Anggota Kelompok
+
+| No. | Nama Mahasiswa | NIM |
+|:---:|---|:---:|
+| 1 | Zena Juniarti | 2411500046 |
+| 2 | Zahro Safitri | 2411500063 |
+
+## 📋 Pembagian Tugas Anggota
+
+### Anggota 1 — Authentication, Navigasi, dan Struktur Aplikasi
+
+| No. | Tugas | Deskripsi |
+|:---:|---|---|
+| 1 | Struktur aplikasi | Menyiapkan struktur folder dan konfigurasi awal aplikasi. |
+| 2 | Firebase | Menginisialisasi Firebase melalui `main.dart` dan `firebase_options.dart`. |
+| 3 | Authentication | Mengimplementasikan Register, Login, dan Logout. |
+| 4 | AuthService | Mengelola proses autentikasi menggunakan Firebase Authentication. |
+| 5 | AuthProvider | Mengelola status autentikasi menggunakan ChangeNotifier. |
+| 6 | Auth State | Memantau perubahan status login menggunakan `authStateChanges()`. |
+| 7 | Navigasi | Mengatur AuthGate dan navigasi berdasarkan status login pengguna. |
+
+### Anggota 2 — Firestore CRUD, Provider, dan REST API
+
+| No. | Tugas | Deskripsi |
+|:---:|---|---|
+| 1 | Model | Membuat `TransactionModel` dan `ProductModel`. |
+| 2 | FirestoreService | Mengimplementasikan operasi Create, Read, Update, dan Delete transaksi. |
+| 3 | TransactionProvider | Mengelola data transaksi, pemasukan, pengeluaran, dan saldo. |
+| 4 | ViewState | Mengelola status loading, loaded, error, dan empty. |
+| 5 | ApiService | Mengambil data produk dari REST API DummyJSON menggunakan Dio. |
+| 6 | ApiProvider | Mengelola data produk dan status pemuatan API. |
+| 7 | Future dan Stream | Menerapkan proses asynchronous menggunakan Future dan Stream. |
+
+**Catatan:** Karena kelompok terdiri dari dua orang, Anggota 2 juga menangani integrasi Dio REST API, penanganan loading/error/empty, serta penerapan Future dan Stream.
+
+---
+
+## 🚀 Fitur Aplikasi
+
+### 1. Firebase Authentication
+
+- Registrasi akun menggunakan email dan password.
+- Login dan Logout pengguna.
+- Memantau status autentikasi secara reaktif menggunakan `Stream<User?>`.
+- Menggunakan `authStateChanges()` untuk mengetahui perubahan status login.
+- Mengarahkan pengguna ke halaman Login atau Home berdasarkan status autentikasi.
+
+### 2. Cloud Firestore CRUD
+
+- Menyimpan data transaksi pada collection `transactions`.
+- Mendukung operasi Create, Read, Update, dan Delete.
+- Menggunakan `owner` berupa UID pengguna untuk mengaitkan transaksi dengan pemiliknya.
+- Menggunakan `Timestamp` untuk menyimpan waktu transaksi.
+- Memantau perubahan data transaksi secara real-time menggunakan `snapshots()`.
+
+### 3. Provider dan ViewState
+
+- Menggunakan tiga `ChangeNotifier`, yaitu:
+  - `AuthProvider`
+  - `TransactionProvider`
+  - `ApiProvider`
+- Mendaftarkan seluruh Provider menggunakan `MultiProvider` pada `main.dart`.
+- Menggunakan `ViewState` untuk mengelola kondisi tampilan:
+  - `loading`
+  - `loaded`
+  - `error`
+  - `empty`
+- Menggunakan `notifyListeners()` untuk memperbarui tampilan ketika state berubah.
 - Membatalkan subscription Stream ketika Provider tidak lagi digunakan.
-4. REST API Dio (read-only)
-- Mengambil data produk dari DummyJSON (https://dummyjson.com/products).
-- Menggunakan Dio untuk mengirim HTTP GET request.
-- Mengubah respons JSON menjadi objek ProductModel.
-- Menampilkan loading, empty state, error, dan tombol untuk mencoba kembali.
+
+### 4. REST API menggunakan Dio
+
+- Mengambil data produk dari [DummyJSON API](https://dummyjson.com/products).
+- Menggunakan Dio untuk melakukan HTTP GET request.
+- Mengubah respons JSON menjadi objek `ProductModel`.
+- Menampilkan indikator loading ketika data sedang diambil.
+- Menampilkan pesan error dan menyediakan fitur mencoba kembali.
+- Menangani kondisi ketika data kosong.
 - Menampilkan daftar produk dan halaman detail produk.
-- Menampilkan harga dalam Rupiah menggunakan kurs simulasi Rp16.000 per USD.
-5. Navigasi dan Halaman Aplikasi
-Halaman	Berkas	Fungsi
-Login	login_screen.dart	Autentikasi pengguna yang telah memiliki akun
-Register	register_screen.dart	Pendaftaran akun pengguna baru
-Home	home_screen.dart	Ringkasan saldo, pemasukan, pengeluaran, dan riwayat transaksi
-Form Transaksi	transaction_form.dart	Menambah atau mengubah transaksi
-Daftar Produk	api_screen.dart	Menampilkan produk dari REST API
-Detail Produk	product_detail_screen.dart	Menampilkan informasi detail produk yang dipilih
+- Mengonversi harga produk ke Rupiah menggunakan kurs simulasi Rp16.000 per USD.
 
+### 5. Navigasi dan Halaman Aplikasi
 
-🛠️ Teknologi yang Digunakan
-Teknologi	Keterangan
-Flutter	Framework untuk membangun aplikasi mobile
-Dart	Bahasa pemrograman aplikasi
-Firebase Authentication	Mengelola register, login, dan logout
-Cloud Firestore	Menyimpan dan mengelola transaksi
-Provider / MultiProvider	Mengelola state aplikasi
-Dio	Menghubungkan aplikasi dengan REST API
-DummyJSON	Sumber data produk dari REST API
-Future	Menangani proses asynchronous yang menghasilkan satu penyelesaian
-Stream	Menangani aliran data dan pembaruan secara berkelanjutan
+Aplikasi memiliki enam halaman utama sebagai berikut:
 
+| No. | Halaman | Nama File | Fungsi |
+|:---:|---|---|---|
+| 1 | Login | `login_screen.dart` | Autentikasi pengguna yang telah memiliki akun. |
+| 2 | Register | `register_screen.dart` | Pendaftaran akun pengguna baru. |
+| 3 | Home | `home_screen.dart` | Menampilkan saldo, pemasukan, pengeluaran, dan riwayat transaksi. |
+| 4 | Form Transaksi | `transaction_form.dart` | Menambahkan atau mengubah transaksi. |
+| 5 | Daftar Produk | `api_screen.dart` | Menampilkan produk dari REST API. |
+| 6 | Detail Produk | `product_detail_screen.dart` | Menampilkan informasi detail produk yang dipilih. |
 
-📸 Screenshot
-Tambahkan screenshot aktual aplikasi pada bagian berikut. Simpan gambar di repository, misalnya pada folder screenshots/, kemudian sesuaikan nama file pada tautan gambar.
-Login	Register
-keuangan_gambar/login.png	keuangan_gambar/register.png
+---
 
+## 🛠️ Teknologi yang Digunakan
 
-Home	Form Transaksi
-keuangan_gambar/home.png	keuangan_gambar/tambah.png
+| Teknologi | Keterangan |
+|---|---|
+| Flutter | Framework untuk membangun aplikasi mobile. |
+| Dart | Bahasa pemrograman yang digunakan dalam pengembangan aplikasi. |
+| Firebase Authentication | Mengelola registrasi, login, dan logout pengguna. |
+| Cloud Firestore | Menyimpan dan mengelola data transaksi. |
+| Provider / MultiProvider | Mengelola state aplikasi. |
+| Dio | Menghubungkan aplikasi dengan REST API. |
+| DummyJSON | Menyediakan data produk melalui REST API. |
+| Future | Menangani proses asynchronous dengan satu hasil penyelesaian. |
+| Stream | Menangani aliran data dan pembaruan secara berkelanjutan. |
 
+---
 
-Daftar Produk	Detail Produk
-keuangan_gambar/hapus.png	keuangan_gambar/logout.png
+## 📸 Screenshot Aplikasi
 
+Berikut merupakan dokumentasi tampilan antarmuka aplikasi Kas Kecil.
 
-Contoh menampilkan gambar setelah file screenshot tersedia:
-![Halaman Login](screenshots/login.png)
-🛠️ Cara Menjalankan Aplikasi
-Prasyarat: Flutter SDK, Dart SDK, Android Studio atau Visual Studio Code, koneksi internet, serta proyek Firebase.
-# 1. Clone repository
+| **Halaman Login** | **Halaman Register** |
+|:---:|:---:|
+| ![Login](screenshots/Login.png) | ![Register](screenshots/Register.png) |
+
+| **Halaman Home** | **Form Transaksi** |
+|:---:|:---:|
+| ![Home](screenshots/Home.png) | ![Tambah](screenshots/Tambah.png) |
+| ![Edit ](screenshots/Edit.png) | ![ Logout ](screenshots/Logout.png) |
+
+> **Catatan:** Gambar di atas merupakan referensi nama file. Pastikan screenshot aktual sudah dimasukkan ke folder `screenshots` di repository GitHub.
+
+---
+
+## 💻 Cara Menjalankan Aplikasi
+
+### 1. Prasyarat
+
+Sebelum menjalankan aplikasi, pastikan perangkat telah memiliki:
+
+- Flutter SDK.
+- Dart SDK.
+- Android Studio atau Visual Studio Code.
+- Koneksi internet.
+- Proyek Firebase.
+
+### 2. Clone Repository
+
+Jalankan perintah berikut pada terminal:
+
+```bash
 git clone https://github.com/senn-komi/UTS_KAS-KECIL.git
+```
 
-# 2. Masuk ke folder proyek
+### 3. Masuk ke Folder Proyek
+
+```bash
 cd UTS_KAS-KECIL
+```
 
-# 3. Unduh dependensi
+### 4. Masuk ke Folder Aplikasi
+
+```bash
+cd keuangan
+```
+
+### 5. Install Dependencies
+
+```bash
 flutter pub get
+```
 
-# 4. Jalankan aplikasi
+### 6. Jalankan Aplikasi
+
+```bash
 flutter run
-Konfigurasi Firebase
-File lib/firebase_options.dart perlu tersedia di repository dan tidak boleh dimasukkan ke .gitignore agar konfigurasi Firebase proyek dapat digunakan.
+```
 
-Jika ingin menghubungkan aplikasi ke proyek Firebase sendiri, jalankan:
+### 7. Periksa Kode Aplikasi
+
+Untuk memeriksa kemungkinan kesalahan pada kode, jalankan:
+
+```bash
+flutter analyze
+```
+
+---
+
+## 🔥 Konfigurasi Firebase
+
+Aplikasi menggunakan Firebase Authentication dan Cloud Firestore. Pastikan konfigurasi Firebase telah tersedia sebelum menjalankan aplikasi.
+
+### Konfigurasi Firebase
+
+Jika ingin menghubungkan aplikasi dengan proyek Firebase sendiri, jalankan perintah berikut:
+
+```bash
 dart pub global activate flutterfire_cli
 firebase login
 flutterfire configure
-Pastikan Email/Password telah diaktifkan pada Firebase Console bagian Authentication dan Cloud Firestore telah dibuat serta dikonfigurasi.
+```
 
-Untuk memeriksa kode, jalankan:
-flutter analyze
-🔄 Penerapan Future dan Stream
-Future digunakan untuk proses asynchronous yang menghasilkan satu hasil penyelesaian. Dalam aplikasi ini, Future digunakan antara lain untuk mengambil data produk melalui Dio, proses login/register, serta operasi CRUD dan pengambilan data satu kali.
+### Pengaturan Firebase Console
 
-Stream digunakan untuk menerima data atau perubahan secara berkelanjutan. Dalam aplikasi ini, Stream digunakan untuk memantau perubahan status autentikasi melalui authStateChanges() dan perubahan data transaksi Firestore melalui snapshots().
+Pastikan beberapa konfigurasi berikut sudah dilakukan:
 
-Dengan demikian, Future sesuai untuk proses yang cukup dilakukan satu kali, sedangkan Stream digunakan ketika aplikasi perlu terus mendengarkan pembaruan.
-🔗 Video Presentasi
-- Link Video: Tambahkan tautan video presentasi di sini
-ℹ️ Informasi Repository
-- Nama Repository: UTS_KAS-KECIL
-- Link GitHub: https://github.com/senn-komi/UTS_KAS-KECIL
-- Folder Project: keuangan
-- Mata Kuliah: Pemrograman Multi Platform
-- Institusi: Institut Sains dan Bisnis Atma Luhur Pangkalpinang
+1. Aktifkan metode autentikasi **Email/Password** pada Firebase Console bagian Authentication.
+2. Buat dan konfigurasi database **Cloud Firestore**.
+3. Pastikan aplikasi telah terhubung dengan proyek Firebase yang sesuai.
+
+**Penting:** File `lib/firebase_options.dart` perlu disertakan dalam repository dan tidak boleh dimasukkan ke `.gitignore`, agar konfigurasi Firebase dapat digunakan ketika proyek dijalankan.
+
+---
+
+## 🔄 Penerapan Future dan Stream
+
+Dalam aplikasi Kas Kecil, Future dan Stream digunakan untuk menangani proses asynchronous.
+
+### 1. Future
+
+Future merupakan mekanisme asynchronous yang menghasilkan satu hasil penyelesaian.
+
+Dalam aplikasi ini, Future digunakan untuk:
+
+- Mengambil data produk melalui Dio.
+- Melakukan proses Login dan Register.
+- Menjalankan operasi CRUD Firestore.
+- Mengambil data transaksi satu kali melalui proses `loadOnce()`.
+
+### 2. Stream
+
+Stream merupakan mekanisme asynchronous yang memungkinkan aplikasi menerima data atau perubahan secara berkelanjutan.
+
+Dalam aplikasi ini, Stream digunakan untuk:
+
+- Memantau perubahan status autentikasi menggunakan `authStateChanges()`.
+- Memantau perubahan data transaksi Firestore menggunakan `snapshots()`.
+
+### 3. Perbedaan Future dan Stream
+
+| Aspek | Future | Stream |
+|---|---|---|
+| Hasil | Satu hasil penyelesaian | Dapat menghasilkan banyak data |
+| Proses | Sekali selesai | Berkelanjutan |
+| Penggunaan | Pengambilan data satu kali | Pemantauan perubahan data |
+| Contoh aplikasi | HTTP request Dio | Perubahan transaksi Firestore |
+
+Dengan demikian, Future digunakan untuk proses yang cukup dilakukan satu kali, sedangkan Stream digunakan ketika aplikasi perlu terus menerima dan memantau pembaruan data.
+
+---
+
+## 🎥 Video Presentasi
+
+Video presentasi ini berisi penjelasan mengenai proses pengembangan aplikasi, fitur-fitur utama, implementasi Firebase, Firestore CRUD, Provider, REST API Dio, serta penerapan Future dan Stream.
+
+**Link Video:** [Tambahkan tautan video presentasi di sini]
+
+---
+
+## ℹ️ Informasi Repository
+
+| Keterangan | Informasi |
+|---|---|
+| Nama Repository | `UTS_KAS-KECIL` |
+| GitHub | [UTS_KAS-KECIL](https://github.com/senn-komi/UTS_KAS-KECIL) |
+| Folder Project | `keuangan` |
+| Mata Kuliah | Pemrograman Multi Platform |
+| Fakultas | Fakultas Teknologi Informasi |
+| Program Studi | Teknologi Informasi |
+| Institusi | Institut Sains dan Bisnis Atma Luhur Pangkalpinang |
+| Tahun Akademik | 2026/2027 |
+
+---
+
+<p align="center">
+  **Dikembangkan untuk memenuhi Ujian Tengah Semester (UTS)**  
+  Pemrograman Multi Platform  
+  Institut Sains dan Bisnis Atma Luhur Pangkalpinang
+</p>
