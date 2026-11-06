@@ -141,8 +141,6 @@ Berikut merupakan dokumentasi tampilan antarmuka aplikasi Kas Kecil.
 | ![Home](screenshot/Home.png) | ![Tambah](screenshot/Tambah.png) |
 | ![Edit ](screenshot/Edit.png) | ![ Logout ](screenshot/Logout.png) |
 
-> **Catatan:** Gambar di atas merupakan referensi nama file. Pastikan screenshot aktual sudah dimasukkan ke folder `screenshots` di repository GitHub.
-
 ---
 
 ## 💻 Cara Menjalankan Aplikasi
