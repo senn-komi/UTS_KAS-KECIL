@@ -139,6 +139,7 @@ Berikut merupakan dokumentasi tampilan antarmuka aplikasi Kas Kecil.
 | **Halaman Home** | **Tambah** |
 |:---:|:---:|
 | ![Home](screenshot/Home.png) | ![Tambah](screenshot/Tambah.png) |
+
 | **Halaman Edit** | **Logout** |
 |:---:|:---:|
 | ![Edit ](screenshot/Edit.png) | ![ Logout ](screenshot/Logout.png) |
